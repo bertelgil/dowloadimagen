@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import fileDownload from 'js-file-download';
-import { Input, Form,Modal, Image, Button, Icon} from 'semantic-ui-react';
+import { Input, Form,Modal, Image, Button, Icon, Container} from 'semantic-ui-react';
 
 
 class Body extends React.Component {
@@ -54,19 +54,21 @@ class Body extends React.Component {
         return (
               
             <div>
+              <Container textAlign='center'>Descarga Tu Imagen aca</Container>
+              {/* <img src={window.location.origin + value}></img> */}
                 <Form onSubmit={this.handleSubmit}>
                     <Input loading icon='user' placeholder='Search...' value={this.state.value}  onChange={this.handleChange} />
                     <Input type="submit" value="Submit"/>
                 </Form>
 
-                    
+                
                 <Modal open={this.state.open1}>
                     <Modal.Header>Deseas Descargar este Imagen?</Modal.Header>
                     <Modal.Content image>
                     <Image size='medium' src={this.state.value}/>
                     </Modal.Content>
                     <Modal.Actions>
-                    <Button primary onClick={() => {this.handleDownload(""+value +"", 'test-download.jpg')}} >
+                    <Button primary onClick={() => {this.handleDownload(""+value +"", 'test-download.png')}} >
                         Descargar <Icon name='right chevron' />
                     </Button>
                     </Modal.Actions>
