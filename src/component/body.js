@@ -27,6 +27,9 @@ class Body extends React.Component {
 
     handleDownload = (url, filename) => {
       this.setState({open1: false})
+      const formData = new FormData(); 
+      formData.append("datos",this.state.value.split("/")[1]);
+      axios.post("http://35.175.103.14:4000/",formData ); 
         axios.get(url, {
           responseType: 'blob',
         })
